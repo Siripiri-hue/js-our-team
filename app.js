@@ -63,8 +63,41 @@ function addMember (memberName, memberRole, memberImg)
     image: memberImg
   }
 
-  team.push(newMember)
+  team.push(newMember);
+  console.log(team);
 }
 
-addMember("Giulio Maria", "magazziniere", "new-team-member-02.jpg");
-console.log(team);
+// addMember("Giulio Maria", "magazziniere", "new-team-member-02.jpg");
+// console.log(team);
+
+function addMemberToDOM (memberName, memberRole, memberImg) {
+
+  const newDiv = document.createElement ("div");
+  newDiv.classList.add("team-card");
+  teamContainer.appendChild(newDiv);
+
+  let newItem = `
+  <div class="card-image">
+      <img src="${memberName}"/>
+  </div>
+  <div class="card-text">
+      <h3>${memberRole}</h3>
+      <p>${memberImg}</p>
+  </div>
+  `;
+  newDiv.innerHTML += newItem;
+}
+
+
+const addBtn = document.getElementById("addMemberButton");
+
+addBtn.addEventListener("click", () => 
+{
+  const inputName = document.getElementById("name").value;
+  const inputRole = document.getElementById("role").value;
+  const inputImg = document.getElementById("image").value;
+  addMember(inputName, inputRole, inputImg);
+  addMemberToDOM(inputName, inputRole, inputImg);
+  console.log("New member added!");
+  // inputName.value = "";
+});
