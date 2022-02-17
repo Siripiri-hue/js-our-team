@@ -78,16 +78,15 @@ function addMemberToDOM (memberName, memberRole, memberImg) {
 
   let newItem = `
   <div class="card-image">
-      <img src="${memberName}"/>
+      <img src="${memberImg}"/>
   </div>
   <div class="card-text">
-      <h3>${memberRole}</h3>
-      <p>${memberImg}</p>
+      <h3>${memberName}</h3>
+      <p>${memberRole}</p>
   </div>
   `;
   newDiv.innerHTML += newItem;
 }
-
 
 const addBtn = document.getElementById("addMemberButton");
 
