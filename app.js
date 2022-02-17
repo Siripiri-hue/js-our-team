@@ -33,28 +33,6 @@ const team = [
 
 const teamContainer = document.querySelector(".team-container");
 
-for (let i = 0; i < team.length; i++)
-{
-  const teamName = team[i].name;
-  const teamRole = team[i].role;
-  const teamImg = team[i].image;
-
-  const newDiv = document.createElement ("div");
-  newDiv.classList.add("team-card");
-  teamContainer.appendChild(newDiv);
-
-  let newItem = `
-  <div class="card-image">
-      <img src="${teamImg}"/>
-  </div>
-  <div class="card-text">
-      <h3>${teamName}</h3>
-      <p>${teamRole}</p>
-  </div>
-  `;
-  newDiv.innerHTML += newItem;
-}
-
 function addMember (memberName, memberRole, memberImg)
 {
   const newMember = {
@@ -100,3 +78,27 @@ addBtn.addEventListener("click", () =>
   console.log("New member added!");
   // inputName.value = "";
 });
+
+for (let i = 0; i < team.length; i++)
+{
+  const teamName = team[i].name;
+  const teamRole = team[i].role;
+  const teamImg = team[i].image;
+
+  addMemberToDOM(teamName, teamRole, teamImg);
+
+  // const newDiv = document.createElement ("div");
+  // newDiv.classList.add("team-card");
+  // teamContainer.appendChild(newDiv);
+
+  // let newItem = `
+  // <div class="card-image">
+  //     <img src="${teamImg}"/>
+  // </div>
+  // <div class="card-text">
+  //     <h3>${teamName}</h3>
+  //     <p>${teamRole}</p>
+  // </div>
+  // `;
+  // newDiv.innerHTML += newItem;
+}
